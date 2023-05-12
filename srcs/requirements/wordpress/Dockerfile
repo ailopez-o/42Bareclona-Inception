@@ -2,7 +2,7 @@ FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
-RUN apt-get install vim 
+RUN apt-get install -y vim 
 
 RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
 	&& tar -xzf wordpress-6.2.tar.gz && rm wordpress-6.2.tar.gz
