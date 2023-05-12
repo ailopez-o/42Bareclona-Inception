@@ -5,23 +5,23 @@ networks:
     name: inception
     driver: bridge
 
-# services:
-#   nginx:
-#     container_name: my_nginx
-#     build: ./requirements/nginx/.
-#     ports:
-#      - "2323:2323"
-#     volumes:
-#      - ./data:/var/www/html
-#     command: 
-#      [ "nginx", "-g", "daemon off;" ]
-#     env_file:
-#      - .env
-#     networks:
-#      - inception
-#     restart: always
-#     depends_on:
-#      - wordpress
+services:
+  nginx:
+    container_name: my_nginx
+    build: ./requirements/nginx/.
+    ports:
+     - "2323:2323"
+    volumes:
+     - ./data:/var/www/html
+    command: 
+     [ "nginx", "-g", "daemon off;" ]
+    env_file:
+     - .env
+    networks:
+     - inception
+    restart: always
+    depends_on:
+     - wordpress
     
   wordpress:
     container_name: my_wordpress
