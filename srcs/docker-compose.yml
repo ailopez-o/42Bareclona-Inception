@@ -1,4 +1,13 @@
-version: "3.5"
+version: "3.9"
+
+volumes:
+  wordpress:
+    name: wp-files
+    driver: local
+    driver_opts:
+      device: /home/ubuntu/deploy/inception/srcs/data
+      o: bind
+      type: none
 
 networks:
   inception:
@@ -11,8 +20,8 @@ services:
     build: ./requirements/nginx/.
     ports:
      - "2323:2323"
-    # volumes:
-    #  - ./data:/var/www/html
+    volumes:
+     - wordpress:/var/www/html
     command: 
      [ "nginx", "-g", "daemon off;" ]
     env_file:
@@ -28,8 +37,8 @@ services:
     build: ./requirements/wordpress/.
     expose:
       - "9000"
-    # volumes:
-    #   - ./data:/var/www/html
+    volumes:
+      - wordpress:/var/www/html
     env_file:
       - .env
     networks:
