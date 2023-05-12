@@ -19,9 +19,9 @@ services:
      - .env
     networks:
      - inception
-    #restart: always
-    # depends_on:
-    #  - wordpress
+    restart: always
+    depends_on:
+     - wordpress
     
   wordpress:
     container_name: my_wordpress
