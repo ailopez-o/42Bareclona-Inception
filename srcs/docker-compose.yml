@@ -10,7 +10,7 @@ services:
     container_name: my_nginx
     build: ./requirements/nginx/.
     ports:
-     - "80:80"
+     - "2323:2323"
     volumes:
      - ./data:/var/www/html
     command: 
