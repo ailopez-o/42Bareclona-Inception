@@ -3,8 +3,10 @@ FROM debian:buster
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
 
-RUN wget https://wordpress.org/wordpress-6.0.tar.gz -P /var/www/html && cd /var/www/html \
-	&& tar -xzf wordpress-6.0.tar.gz && rm wordpress-6.0.tar.gz
+# RUN wget https://wordpress.org/wordpress-6.0.tar.gz -P /var/www/html && cd /var/www/html \
+# 	&& tar -xzf wordpress-6.0.tar.gz && rm wordpress-6.0.tar.gz
+
+COPY ./wp-file /var/www/html/
 
 #copy ./conf/php.conf /etc/php/7.3/fpm/pool.d/www.conf
 #copy ./conf/conf.php /custom/conf.php
