@@ -1,0 +1,22 @@
+version: "3.5"
+
+networks:
+  inception:
+    name: inception
+    driver: bridge
+
+services:
+  nginx:
+    container_name: my_nginx
+    build: ./requirements/nginx/.
+    ports:
+     - "443:443"
+    volumes:
+     - wordpress:/var/www/wordpress
+    env_file:
+     - .env
+    networks:
+     - inception
+    restart: always
+    depends_on:
+     - wordpress
