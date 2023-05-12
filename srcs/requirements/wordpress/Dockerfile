@@ -8,6 +8,7 @@ RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/
 	&& tar -xzf wordpress-6.2.tar.gz && rm wordpress-6.2.tar.gz
 
 COPY ./index.html /var/www/html/
+COPY ./phpinfo.php /var/www/html/
 
 COPY ./conf/php.conf /etc/php/7.3/fpm/pool.d/www.conf
 #copy ./conf/conf.php /custom/conf.php
