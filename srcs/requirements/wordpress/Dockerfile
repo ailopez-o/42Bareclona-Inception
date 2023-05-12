@@ -13,5 +13,6 @@ RUN wget https://wordpress.org/wordpress-6.0.tar.gz -P /var/www/html && cd /var/
 #RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 #copy tools/. /custom/.
+RUN mkdir -p /run/php
 #ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
 CMD ["tail", "-f", "/dev/null"]

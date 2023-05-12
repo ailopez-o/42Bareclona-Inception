@@ -8,7 +8,7 @@ RUN mkdir -p /var/www/html && chmod 755 /var/www/html
 
 #COPY ../wordpress /var/www/html
 
-COPY ./conf/nginx.conf /etc/nginx/conf.d/
+COPY ./conf/nginx.conf /etc/nginx/sites-available/netard.net
 #copy ./conf/default.conf /custom/default.conf
 #copy ./tools/script.sh /custom/script.sh
 
