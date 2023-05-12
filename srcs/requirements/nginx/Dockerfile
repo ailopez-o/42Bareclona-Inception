@@ -8,7 +8,7 @@ RUN mkdir -p /var/www/html && chmod 755 /var/www/html
 
 #COPY ../wordpress /var/www/html
 
-#copy ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/conf.d/
 #copy ./conf/default.conf /custom/default.conf
 #copy ./tools/script.sh /custom/script.sh
 
