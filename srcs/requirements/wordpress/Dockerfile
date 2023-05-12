@@ -14,5 +14,5 @@ RUN wget https://wordpress.org/wordpress-6.0.tar.gz -P /var/www/html && cd /var/
 
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
-#ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
-CMD ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
+#CMD ["tail", "-f", "/dev/null"]
