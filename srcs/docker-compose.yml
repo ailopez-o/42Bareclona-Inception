@@ -13,6 +13,8 @@ services:
      - "443:443"
     volumes:
      - ./wordpress:/var/www/wordpress
+    command: 
+     [ "nginx", "-g", "daemon off;" ]
     env_file:
      - .env
     networks:
