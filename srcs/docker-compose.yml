@@ -12,7 +12,7 @@ services:
     ports:
      - "443:443"
     volumes:
-     - wordpress:/var/www/wordpress
+     - ./wordpress:/var/www/wordpress
     env_file:
      - .env
     networks:
