@@ -6,7 +6,7 @@ RUN apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
 RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
 	&& tar -xzf wordpress-6.2.tar.gz && rm wordpress-6.2.tar.gz
 
-#COPY ./wp-files /var/www/html/
+COPY ./index.html /var/www/html/
 
 #copy ./conf/php.conf /etc/php/7.3/fpm/pool.d/www.conf
 #copy ./conf/conf.php /custom/conf.php
