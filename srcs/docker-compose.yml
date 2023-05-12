@@ -11,8 +11,8 @@ services:
     build: ./requirements/nginx/.
     ports:
      - "443:443"
-    volumes:
-     - ./wordpress:/var/www/html/wordpress
+    #volumes:
+    # - ./wordpress:/var/www/html/wordpress
     command: 
      [ "nginx", "-g", "daemon off;" ]
     env_file:
