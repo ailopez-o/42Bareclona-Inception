@@ -4,8 +4,10 @@ volumes:
   wordpress:
     name: wp-files
     driver: local
+    command:
+     [ "mkdir", "-p", "/home/ubuntu/deploy/inception/srcs/dev_data" ]
     driver_opts:
-      device: /home/ubuntu/deploy/inception/srcs/data
+      device: /home/ubuntu/deploy/inception/srcs/dev_data
       o: bind
       type: none
 
