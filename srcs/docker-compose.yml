@@ -17,6 +17,6 @@ services:
      - .env
     networks:
      - inception
-    restart: always
+    #restart: always
     # depends_on:
     #  - wordpress
