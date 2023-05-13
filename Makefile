@@ -1,19 +1,18 @@
-SUDO = 
 
 all:
-	sudo docker-compose -f srcs/docker-compose.yml up -d
+	docker-compose -f srcs/docker-compose.yml up -d
 stop:
-	sudo docker-compose -f srcs/docker-compose.yml down
+	docker-compose -f srcs/docker-compose.yml down
 clean:
-	-${SUDO} docker-compose -f srcs/docker-compose.yml down
-	-${SUDO} docker rm srcs-nginx
-	-${SUDO} docker rm srcs-wordpress
-	-${SUDO} docker rmi srcs-nginx
-	-${SUDO} docker rmi srcs-wordpress
-	-${SUDO} docker volume rm wp-data
-	-${SUDO} docker network rm inception
+	-docker-compose -f srcs/docker-compose.yml down
+	-docker rm srcs-nginx
+	-docker rm srcs-wordpress
+	-ocker rmi srcs-nginx
+	-docker rmi srcs-wordpress
+	-docker volume rm wp-data
+	-docker network rm inception
 
 prune:
-	${SUDO} yes | docker system prune -a --volumes
+	yes | docker system prune -a --volumes
 
 re: clean all

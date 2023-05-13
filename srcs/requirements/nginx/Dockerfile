@@ -12,7 +12,6 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
 
 RUN mkdir -p /run/nginx
 
-EXPOSE 443
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
 #copy ./conf/default.conf /custom/default.conf
 #copy ./tools/script.sh /custom/script.sh
