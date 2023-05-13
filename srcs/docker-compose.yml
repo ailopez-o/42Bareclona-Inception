@@ -18,8 +18,8 @@ services:
      - "80:80"
     volumes:
      - wordpress:/var/www/html
-    command: 
-     [ "nginx", "-g", "daemon off;" ]
+    # command: 
+    #  [ "nginx", "-g", "daemon off;" ]
     env_file:
      - .env
     networks:
