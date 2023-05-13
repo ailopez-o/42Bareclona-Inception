@@ -9,8 +9,8 @@ RUN apt-get install -y certbot python3-certbot-nginx
 COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
 COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
-RUN certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com
 RUN mkdir -p /run/nginx
+RUN certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com
 
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
 #copy ./conf/default.conf /custom/default.conf
