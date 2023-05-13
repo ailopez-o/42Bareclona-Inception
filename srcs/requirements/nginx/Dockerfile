@@ -11,7 +11,6 @@ COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
 RUN mkdir -p /run/nginx
 
-
 # ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
 COPY ./conf/start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin//start.sh
