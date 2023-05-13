@@ -1,5 +1,8 @@
 FROM debian:bullseye-slim
 
+#RUN apk update && apk upgrade && apk add --no-cache openssl nginx
+#RUN apk update && apk upgrade && apk add --no-cache openssl nginx
+
 RUN apt-get update && apt-get upgrade -y
 RUN	apt-get install -y nginx 
 RUN	apt-get install -y vim
