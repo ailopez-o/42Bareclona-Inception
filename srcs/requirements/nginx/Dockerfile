@@ -16,8 +16,10 @@ RUN mkdir -p /run/nginx
 
 
 # ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
-RUN chmod +x ./conf/start.sh
-ENTRYPOINT ["./conf/start.sh"]
+COPY ./conf/start.sh /usr/local/bin/start.sh
+
+RUN chmod +x /usr/local/bin//start.sh
+ENTRYPOINT ["/usr/local/bin//start.sh"]
 #RUN certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com
 
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
