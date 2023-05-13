@@ -18,5 +18,6 @@ COPY ./conf/php.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
+RUN chmod 755 /run/php
 ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
 #CMD ["tail", "-f", "/dev/null"]
