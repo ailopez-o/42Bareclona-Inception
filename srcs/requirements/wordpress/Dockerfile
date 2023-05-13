@@ -10,16 +10,18 @@ RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/
 COPY ./index.html /var/www/html/
 COPY ./phpinfo.php /var/www/html/
 
-COPY ./conf/php.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 #copy ./conf/conf.php /custom/conf.php
 
 #RUN chown -R root:root /var/www/wordpress
 #RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 EXPOSE 9000
+WORKDIR /var/www/html/
 
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
 RUN chmod 755 /run/php
 ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]
 #CMD ["tail", "-f", "/dev/null"]
+

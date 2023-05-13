@@ -11,7 +11,7 @@ networks:
 
 services:
   nginx:
-    container_name: my_nginx
+    container_name: nginx
     build: ./requirements/nginx/.
     ports:
      - "2323:2323"
@@ -28,9 +28,9 @@ services:
      - wordpress
     
   wordpress:
-    container_name: my_wordpress
+    container_name: wordpress
     build: ./requirements/wordpress/.
-    expose:
+    ports:
       - "9000:9000"
     volumes:
       - wordpress:/var/www/html
