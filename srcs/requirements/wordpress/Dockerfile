@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y wget php7.4 php-fpm
+RUN apt-get install -y wget php php-fpm
 RUN apt-get install -y vim 
 
 RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
