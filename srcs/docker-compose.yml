@@ -14,7 +14,7 @@ services:
     container_name: nginx
     build: ./requirements/nginx/.
     ports:
-     - "2323:2323"
+     - "443:443"
     volumes:
      - wordpress:/var/www/html
     command: 

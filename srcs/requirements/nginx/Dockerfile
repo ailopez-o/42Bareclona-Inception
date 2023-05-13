@@ -5,13 +5,14 @@ FROM debian:bullseye-slim
 
 RUN 	apt-get update && apt-get upgrade -y
 RUN		apt-get install -y nginx 
-RUN		apt-get install -y vim 
+RUN		apt-get install -y vim
+RUN		apt-get install -y systemctl
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
 
 RUN mkdir -p /run/nginx
 
-
+EXPOSE 443
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
 #copy ./conf/default.conf /custom/default.conf
 #copy ./tools/script.sh /custom/script.sh
