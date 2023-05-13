@@ -16,7 +16,7 @@ RUN mkdir -p /run/nginx
 
 
 # ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
-ENTRYPOINT ["/conf/start.sh"]
+ENTRYPOINT ["./conf/start.sh"]
 #RUN certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com
 
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
