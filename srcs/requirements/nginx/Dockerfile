@@ -7,8 +7,10 @@ RUN 	apt-get update && apt-get upgrade -y
 RUN		apt-get install -y nginx 
 RUN		apt-get install -y vim
 RUN		apt-get install -y systemctl
+RUN 	apt-get install -y certbot python3-certbot-nginx
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
+COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
 RUN mkdir -p /run/nginx
 
