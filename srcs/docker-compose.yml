@@ -31,7 +31,7 @@ services:
     container_name: my_wordpress
     build: ./requirements/wordpress/.
     expose:
-      - "9000"
+      - "9000:9000"
     volumes:
       - wordpress:/var/www/html
     env_file:
