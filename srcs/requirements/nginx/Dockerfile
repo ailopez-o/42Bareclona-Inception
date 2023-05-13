@@ -14,6 +14,8 @@ COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
 RUN mkdir -p /run/nginx
 
+RUN [ "nginx", "-g", "daemon off;" ]
+
 #COPY ./conf/nginx.conf /etc/nginx/http.d/my_nginx.conf
 #copy ./conf/default.conf /custom/default.conf
 #copy ./tools/script.sh /custom/script.sh
