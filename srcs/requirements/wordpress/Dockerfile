@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
+RUN apt-get install -y wget php7.4 php-fpm
 RUN apt-get install -y vim 
 
 RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
@@ -19,5 +19,5 @@ COPY ./conf/php.conf /etc/php/7.3/fpm/pool.d/www.conf
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
 RUN chmod 755 /run/php
-ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
+ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]
 #CMD ["tail", "-f", "/dev/null"]
