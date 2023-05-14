@@ -13,7 +13,7 @@ DARK_GRAY =		\033[38;5;234m
 DARK_GREEN =	\033[1m\033[38;2;75;179;82m
 
 all:
-	docker-compose logs -f srcs/docker-compose.yml up -d
+	docker-compose -f srcs/docker-compose.yml up -d
 stop:
 	docker-compose -f srcs/docker-compose.yml down
 
