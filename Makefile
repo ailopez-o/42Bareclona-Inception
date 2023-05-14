@@ -18,19 +18,19 @@ stop:
 	docker-compose -f srcs/docker-compose.yml down
 
 cwp:
-	-docker-compose -f srcs/docker-compose.yml down
+	-docker stop wordpress
 	-docker rm wordpress
 	-docker rmi srcs-wordpress
 	-docker volume rm wp-data
 
 cmdb:
-	-docker-compose -f srcs/docker-compose.yml down
+	-docker stop mariadb
 	-docker rm mariadb
 	-docker rmi srcs-mariadb
 	-docker volume rm sql-data
 
 cnginx:
-	-docker-compose -f srcs/docker-compose.yml down
+	-docker stop ngnix
 	-docker rm nginx
 	-docker rmi srcs-nginx
 
