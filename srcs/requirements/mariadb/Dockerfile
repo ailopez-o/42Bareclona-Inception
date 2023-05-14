@@ -7,7 +7,7 @@ RUN apt-get install -y vim procps
 
 #SERVER CONF
 RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
-COPY ./conf/server.conf /etc/mysql/mariadb.conf.d
+COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #CREATE DATABASE & USER
 COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
