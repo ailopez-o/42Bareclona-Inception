@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y wget php php7.4-fpm
+RUN apt-get install -y wget php php7.3-fpm
 RUN apt-get install -y vim 
 
 RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
@@ -10,7 +10,7 @@ RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/
 COPY ./index.html /var/www/html/
 COPY ./phpinfo.php /var/www/html/
 
-COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 #copy ./conf/conf.php /custom/conf.php
 
 #RUN chown -R root:root /var/www/wordpress
@@ -22,6 +22,6 @@ WORKDIR /var/www/html/
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
 RUN chmod 755 /run/php
-ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]
+ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
 #CMD ["tail", "-f", "/dev/null"]
 
