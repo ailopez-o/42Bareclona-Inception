@@ -36,8 +36,8 @@ services:
     networks:
       - inception
     restart: always
-    depends_on:
-      - mariadb
+    # depends_on:
+    #   - mariadb
 
   # mariadb:
   #   container_name: mariadb
