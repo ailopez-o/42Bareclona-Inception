@@ -11,6 +11,7 @@ COPY ./conf/server.conf /etc/mysql/mariadb.conf.d
 
 #CREATE DATABASE & USER
 COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
+RUN chmod +x /usr/local/bin/create_user.sh
 RUN /usr/local/bin/create_user.sh
 
 #STARTUP SECUENCE
