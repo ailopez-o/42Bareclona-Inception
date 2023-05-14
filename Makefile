@@ -7,7 +7,7 @@ clean:
 	-docker rm nginx
 	-docker rm wordpress
 	-docker rm mariadb	
-	-docker rmi srcs-mriadb
+	-docker rmi srcs-mariadb
 	-docker rmi srcs-nginx
 	-docker rmi srcs-wordpress
 	-docker volume rm wp-data
