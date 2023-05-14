@@ -43,14 +43,16 @@ services:
 
   mariadb:
     container_name: mariadb
-    build: ./requirements/mariadb/.
+    build:
+      context: ./requirements/mariadb
+      args:
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASSWORD=${DB_PASSWORD}
+        - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
-    args:
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+   
     networks:
       - inception
     # restart: always
