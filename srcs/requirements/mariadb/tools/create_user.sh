@@ -20,7 +20,7 @@ chown -R mysql:mysql /var/lib/mysql
 service mysql start
 #mysql -u root -e "DROP DATABASE IF EXISTS incepionbbdd;"
 # mysql -u root -e "DROP USER IF EXISTS 'nolan'@'%';"
-echo $DB_NAME >> /log.txt
+echo ${DB_NAME} >> /log.txt
 #mysql -u root -e "CREATE DATABASE $DB_NAME;"
 # mysql -u root -e "CREATE USER 'nolan'@'%' IDENTIFIED BY '123456'"
 # mysql -u root -e "GRANT ALL ON incepionbbdd.* TO 'nolan'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;"
