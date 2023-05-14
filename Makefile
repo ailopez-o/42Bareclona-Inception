@@ -36,19 +36,19 @@ cnginx:
 
 clean:
 	-docker-compose -f srcs/docker-compose.yml down
-	@echo "$(DARK_GREEN)NGNIX Docker & Image Cleaned ✅$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)NGNIX Docker & Image Clean$(DEF_COLOR)"
 	-docker rm nginx
 	-docker rmi srcs-nginx
-	@echo "$(DARK_GREEN)WORDPRESS Docker & Image Cleaned ✅$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)WORDPRESS Docker & Image Clean$(DEF_COLOR)"
 	-docker rm wordpress
 	-docker rmi srcs-wordpress
-	@echo "$(DARK_GREEN)MARIADB Docker & Image Cleaned ✅$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)MARIADB Docker & Image Clean$(DEF_COLOR)"
 	-docker rm mariadb	
 	-docker rmi srcs-mariadb
-	@echo "$(DARK_GREEN)VOLUMES Cleaned ✅$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
-	@echo "$(DARK_GREEN)NETWORK Docker & Image Cleaned ✅$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)NETWORK Docker & Image Clean$(DEF_COLOR)"
 	-docker network rm inception
 
 prune:
