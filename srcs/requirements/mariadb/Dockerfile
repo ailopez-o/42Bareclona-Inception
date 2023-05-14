@@ -9,4 +9,4 @@ COPY ./tools/startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /usr/local/bin/startup.sh
 EXPOSE 3306
 
-ENTRYPOINT ["mysqld", "--foreground"]
+ENTRYPOINT ["/usr/local/bin/startup.sh"]
