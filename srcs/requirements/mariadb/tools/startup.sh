@@ -1,3 +1,5 @@
 #!/bin/bash
 # Iniciar el servicio MariaDB
-mysqld_safe &
+service mysql start
+# Mantener el contenedor en ejecución
+tail -f /dev/null
