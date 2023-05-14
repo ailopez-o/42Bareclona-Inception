@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget php php7.4-fpm
