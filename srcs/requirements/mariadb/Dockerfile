@@ -10,9 +10,8 @@ RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./conf/server.conf /etc/mysql/mariadb.conf.d
 
 #CREATE DATABASE & USER
-COPY ./tools/create_user.sh /
-RUN bash ./create_user.sh
-RUN rm -rf create_user.sh
+COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
+RUN /usr/local/bin/create_user.sh
 
 #STARTUP SECUENCE
 # COPY ./tools/startup.sh /usr/local/bin/startup.sh
