@@ -15,6 +15,7 @@ RUN bash ./create_user.sh
 RUN rm -rf create_user.sh
 
 #STARTUP SECUENCE
+RUN echo "loging.."
 COPY ./tools/startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /usr/local/bin/startup.sh
 
