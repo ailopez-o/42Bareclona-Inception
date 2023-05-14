@@ -48,6 +48,6 @@ services:
       - mariadb:/var/lib/mysql
     networks:
       - inception
-    restart: always
+    # restart: always
     env_file:
       - .env
