@@ -3,6 +3,8 @@ version: "3.9"
 volumes:
   wordpress:
     name: wp-data
+  mariadb:
+    name: sql-data
 
 networks:
   inception:
@@ -43,7 +45,7 @@ services:
     container_name: mariadb
     build: ./requirements/mariadb/.
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     networks:
       - inception
     restart: always
