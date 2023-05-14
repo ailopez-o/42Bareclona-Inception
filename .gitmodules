@@ -1,3 +1,0 @@
-[submodule "srcs/requirements/bonus/certbot"]
-	path = srcs/requirements/bonus/certbot
-	url = git@github.com:digrouz/docker-certbot.git
