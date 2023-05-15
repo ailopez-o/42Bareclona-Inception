@@ -2,9 +2,6 @@ userdel mysql
 useradd -u 999 mysql
 chown -R mysql:mysql /var/lib/mysql
 
-ARG MYSQL_DATABASE
-
-
 service mysql start
 echo $MYSQL_DATABASE > log.txt
 mysql -u root -e "CREATE DATABASE $MYSQL_DATABASE;"
