@@ -41,7 +41,7 @@ services:
   wordpress:
     container_name: wordpress
     build:
-      build: ./requirements/wordpres
+      context: ./requirements/wordpres
       args:
         MYSQL_HOST:       mariadb
         MYSQL_DATABASE:   ${MYSQL_DATABASE}
