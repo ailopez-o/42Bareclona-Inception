@@ -49,7 +49,7 @@ services:
     networks:
       - inception
     restart: always
-    env:
+    environment:
       DB_NAME=my_ddbb
     env_file:
       - .env
