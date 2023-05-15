@@ -39,6 +39,6 @@ WORKDIR /var/www/html/
 #copy tools/. /custom/.
 RUN mkdir -p /run/php
 RUN chmod 755 /run/php
-ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
+CMD ["/usr/sbin/php-fpm7.3", "-F"]
 #CMD ["tail", "-f", "/dev/null"]
 
