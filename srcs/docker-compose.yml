@@ -43,13 +43,14 @@ services:
 
   mariadb:
     container_name: mariadb
-    build: ./requirements/mariadb
+    build: 
+      context: ./requirements/mariadb
+      args:
+        - DB_NAME=my_ddbb
     volumes:
       - mariadb:/var/lib/mysql
     networks:
       - inception
     restart: always
-    args:
-      - DB_NAME=my_ddbb
     env_file:
       - .env
