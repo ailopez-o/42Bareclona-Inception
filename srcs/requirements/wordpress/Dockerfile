@@ -11,9 +11,9 @@ COPY ./phpinfo.php /var/www/html/
 #PHP SETUP
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
-# RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
-# 	&& tar -xzf wordpress-6.2.tar.gz && rm wordpress-6.2.tar.gz
-#RUN chown -R root:root /var/www/html/wordpress
+RUN wget https://wordpress.org/wordpress-6.2.tar.gz -P /var/www/html && cd /var/www/html \
+	&& tar -xzf wordpress-6.2.tar.gz && rm wordpress-6.2.tar.gz
+RUN chown -R root:root /var/www/html/wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 #WP SETUP
