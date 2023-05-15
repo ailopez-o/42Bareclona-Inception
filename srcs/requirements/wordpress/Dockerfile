@@ -4,7 +4,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli mariadb-client
 RUN apt-get install -y vim netcat
 
-#JUST TESTING
+# JUST TESTING
 # COPY ./index.html /var/www/html/
 COPY ./phpinfo.php /var/www/html/
 
