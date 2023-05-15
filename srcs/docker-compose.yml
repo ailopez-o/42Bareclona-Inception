@@ -19,7 +19,7 @@ services:
      - "443:443"
      - "80:80"
     volumes:
-     - wordpress:/var/www/html
+     - /home/ailopez-/data/wp:/var/www/html
     env_file:
      - .env
     networks:
@@ -52,7 +52,7 @@ services:
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
-      - mariadb:/var/lib/mysql
+      - /home/ailopez-/data/bbdd:/var/lib/mysql
     networks:
       - inception
     restart: always
