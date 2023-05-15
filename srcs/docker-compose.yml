@@ -43,10 +43,7 @@ services:
 
   mariadb:
     container_name: mariadb
-    build: 
-      context: ./requirements/mariadb
-      args:
-        - DB_NAME=${DB_NAME}
+    build: ./requirements/mariadb/.
     volumes:
       - mariadb:/var/lib/mysql
     networks:
