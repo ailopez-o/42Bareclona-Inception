@@ -19,7 +19,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 #WP SETUP
 COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
 RUN chmod +x /usr/local/bin/wp_setup.sh
-RUN /usr/local/bin/wp_setup.sh
+# RUN /usr/local/bin/wp_setup.sh
 
 EXPOSE 9000
 WORKDIR /var/www/html/

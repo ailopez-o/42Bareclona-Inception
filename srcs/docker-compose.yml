@@ -51,7 +51,6 @@ services:
       WP_ADMIN_USR:     ${WP_ADMIN_USR}
       WP_ADMIN_EMAIL:   ${WP_ADMIN_EMAIL}
       WP_USR:           ${WP_USR}
-      WP_PWD:           ${WP_PWD}
       WP_EMAIL:         ${WP_EMAIL}
     volumes:
       - wordpress:/var/www/html
