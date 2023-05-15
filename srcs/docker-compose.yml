@@ -50,6 +50,6 @@ services:
       - inception
     restart: always
     environment:
-      DB_NAME=my_ddbb
+      - DB_NAME=my_ddbb
     env_file:
       - .env
