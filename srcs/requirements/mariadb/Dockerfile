@@ -3,7 +3,7 @@ FROM debian:buster
 #INSTALL SERVICES
 RUN apt-get update
 RUN apt-get install -y mariadb-server
-RUN apt-get install -y vim procps
+RUN apt-get install -y vim procps netcat
 
 #SERVER CONF
 RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf

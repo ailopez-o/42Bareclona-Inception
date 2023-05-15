@@ -2,7 +2,7 @@ FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y
 RUN	apt-get install -y nginx 
-RUN	apt-get install -y vim
+RUN	apt-get install -y vim netcat
 #RUN	apt-get install -y systemctl
 #RUN apt-get install -y certbot python3-certbot-nginx
 
