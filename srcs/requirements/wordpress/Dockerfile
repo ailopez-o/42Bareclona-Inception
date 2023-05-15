@@ -17,9 +17,21 @@ COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 #WP SETUP
+ARG MYSQL_DATABASE
+ARG MYSQL_USER
+ARG MYSQL_PASSWORD
+ARG MYSQL_HOST
+ARG DOMAIN_NAME
+ARG WP_TITLE
+ARG WP_ADMIN_USR
+ARG WP_ADMIN_PWD
+ARG WP_ADMIN_EMAIL
+ARG WP_USR
+ARG WP_EMAIL
+ARG WP_PWD
 COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
 RUN chmod +x /usr/local/bin/wp_setup.sh
-# RUN /usr/local/bin/wp_setup.sh
+RUN /usr/local/bin/wp_setup.sh
 
 EXPOSE 9000
 WORKDIR /var/www/html/
