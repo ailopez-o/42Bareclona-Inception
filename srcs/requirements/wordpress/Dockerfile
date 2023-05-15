@@ -31,7 +31,7 @@ ARG WP_EMAIL
 ARG WP_PWD
 COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
 RUN chmod +x /usr/local/bin/wp_setup.sh
-#RUN /usr/local/bin/wp_setup.sh
+RUN /usr/local/bin/wp_setup.sh
 
 EXPOSE 9000
 WORKDIR /var/www/html/
