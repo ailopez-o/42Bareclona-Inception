@@ -5,14 +5,14 @@ volumes:
     name: wp-data
     driver: local
     driver_opts:
-      device: /home/ubuntu/data/wp
+      device: /home/ubuntu/deploy/inception/data/wp
       o: bind
       type: none
   mariadb:
     name: sql-data
     driver: local
     driver_opts:
-      device: /home/ubuntu/data/bbdd
+      device: /home/ubuntu/deploy/inception/data/bbdd
       o: bind
       type: none
 
