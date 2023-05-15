@@ -22,5 +22,5 @@ RUN /usr/local/bin/create_user.sh
 EXPOSE 3306
 
 #START
-CMD ["mysqld_safe"]
+CMD ["mysqld"]
 
