@@ -46,7 +46,7 @@ services:
     build: 
       context: ./requirements/mariadb
       args:
-        - DB_NAME=my_ddbb
+        - DB_NAME=${DB_NAME}
     volumes:
       - mariadb:/var/lib/mysql
     networks:
