@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /var/www/html
 wp core download --allow-root
 wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$MYSQL_HOST --dbcharset="utf8" --dbcollate="utf8_general_ci" --allow-root
