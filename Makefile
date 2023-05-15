@@ -48,6 +48,8 @@ clean:
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
+	rm -rf /home/ubuntu/deploy/inception/data/bbdd/
+	rm -rf /home/ubuntu/deploy/inception/data/wp/
 	@echo "$(DARK_GREEN)NETWORK Docker & Image Clean$(DEF_COLOR)"
 	-docker network rm inception
 
