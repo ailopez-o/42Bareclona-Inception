@@ -3,8 +3,18 @@ version: "3.9"
 volumes:
   wordpress:
     name: wp-data
+    driver: local
+    driver_opts:
+      device: /home/ubuntu/data/wp
+      o: bind
+      type: none
   mariadb:
     name: sql-data
+    driver: local
+    driver_opts:
+      device: /home/ubuntu/data/bbdd
+      o: bind
+      type: none
 
 networks:
   inception:
@@ -19,7 +29,7 @@ services:
      - "443:443"
      - "80:80"
     volumes:
-     - /home/ailopez-/data/wp:/var/www/html
+     - wordpress:/var/www/html
     env_file:
      - .env
     networks:
@@ -52,7 +62,7 @@ services:
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
-      - /home/ailopez-/data/bbdd:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     networks:
       - inception
     restart: always
