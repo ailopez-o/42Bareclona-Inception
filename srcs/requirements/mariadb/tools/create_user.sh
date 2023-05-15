@@ -19,6 +19,7 @@ chown -R mysql:mysql /var/lib/mysql
 
 service mysql start
 mysql -u root -e "DROP DATABASE IF EXISTS $MYSQL_DATABASE;"
+echo $MYSQL_DATABASE $MYSQL_USER $MYSQL_PASSWORD $MYSQL_ROOT_PASSWORD > log.txt
 mysql -u root -e "DROP USER IF EXISTS '$MYSQL_USER'@'%';"
 mysql -u root -e "CREATE DATABASE $MYSQL_DATABASE;"
 mysql -u root -e "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'"
