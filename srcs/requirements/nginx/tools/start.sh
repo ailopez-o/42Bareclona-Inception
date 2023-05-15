@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 # Ejecutar Certbot
 #certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com

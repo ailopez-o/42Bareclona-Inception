@@ -8,18 +8,6 @@ RUN apt-get install -y vim netcat
 COPY ./index.html /var/www/html/
 COPY ./phpinfo.php /var/www/html/
 
-#ENV VALUES
-ARG MYSQL_DATABASE
-ARG MYSQL_USER
-ARG MYSQL_PASSWORD
-ARG MYSQL_ROOT_PASSWORD
-
-ENV MYSQL_DATABASE=$MYSQL_DATABASE
-ENV MYSQL_USER=$MYSQL_USER
-ENV MYSQL_PASSWORD=$MYSQL_PASSWORD
-ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-
-
 #PHP SETUP
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
@@ -29,9 +17,9 @@ COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 #WP SETUP
-# COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
-# RUN chmod +x /usr/local/bin/wp_setup.sh
-# RUN /usr/local/bin/wp_setup.sh
+COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
+RUN chmod +x /usr/local/bin/wp_setup.sh
+RUN /usr/local/bin/wp_setup.sh
 
 EXPOSE 9000
 WORKDIR /var/www/html/
