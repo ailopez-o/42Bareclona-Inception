@@ -10,7 +10,6 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
 #COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
 RUN mkdir -p /run/nginx
-RUN [ "nginx", "-g", "daemon off;" ]
 #RUN certbot --nginx -d netard.net -d www.netard.net --non-interactive --agree-tos --email aitorlpzaudikana@gmail.com
 
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

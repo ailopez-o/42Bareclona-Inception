@@ -12,6 +12,9 @@ BROWN =			\033[38;2;184;143;29m
 DARK_GRAY =		\033[38;5;234m
 DARK_GREEN =	\033[1m\033[38;2;75;179;82m
 
+WP_PATH="/Users/ailopez-/42Barcelona/cursus/inception/data/wp"
+BBDD_PATH="/Users/ailopez-/42Barcelona/cursus/inception/data/bbdd"
+
 all:
 	docker-compose -f srcs/docker-compose.yml up -d
 stop:
@@ -48,9 +51,12 @@ clean:
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
-	rm -rf /home/ubuntu/deploy/inception/data
-	mkdir -p /home/ubuntu/deploy/inception/data/wp
-	mkdir -p /home/ubuntu/deploy/inception/data/bbdd
+	rm -rf ${WP_PATH}
+	mkdir -p ${WP_PATH}
+	chmod 777 ${WP_PATH}
+	rm -rf ${BBDD_PATH}
+	mkdir -p ${BBDD_PATH}
+	chmod 777 ${BBDD_PATH}
 	@echo "$(DARK_GREEN)NETWORK Docker & Image Clean$(DEF_COLOR)"
 	-docker network rm inception
 
