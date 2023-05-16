@@ -80,20 +80,20 @@ services:
     env_file:
       - .env
   
-  # ftp:
-  #   container_name: ftp
-  #   build:
-  #     context: ./requirements/bonus/ftp
-  #   ports:
-  #     - "20:20"
-  #     - "21:21"
-  #     - "30000-30010:30000-30010"
-  #   volumes:
-  #     - wordpress:/var/www/html
-  #   networks:
-  #     - inception
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     - wordpress
+  ftp:
+    container_name: ftp
+    build:
+      context: ./requirements/bonus/ftp
+    ports:
+      - "20:20"
+      - "21:21"
+      - "30000-30010:30000-30010"
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
