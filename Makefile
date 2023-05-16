@@ -12,8 +12,11 @@ BROWN =			\033[38;2;184;143;29m
 DARK_GRAY =		\033[38;5;234m
 DARK_GREEN =	\033[1m\033[38;2;75;179;82m
 
-WP_PATH="/Users/ailopez-/42Barcelona/cursus/inception/data/wp"
-BBDD_PATH="/Users/ailopez-/42Barcelona/cursus/inception/data/bbdd"
+
+WP_PATH := $(shell grep WP_PATH srcs/.env | cut -d '=' -f2)
+BBDD_PATH := $(shell grep BBDD_PATH srcs/.env | cut -d '=' -f2)
+
+
 
 all:
 	docker-compose -f srcs/docker-compose.yml up -d
