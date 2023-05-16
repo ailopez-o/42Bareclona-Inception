@@ -51,6 +51,9 @@ clean:
 	@echo "$(DARK_GREEN)MARIADB Docker & Image Clean$(DEF_COLOR)"
 	-docker rm mariadb	
 	-docker rmi srcs-mariadb
+	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
+	-docker rm ftp
+	-docker rmi srcs-ftp
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
