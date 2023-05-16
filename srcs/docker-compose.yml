@@ -90,6 +90,9 @@ services:
       - "30000-30010:30000-30010"
     volumes:
       - wordpress:/var/www/html
+    environment:
+      FTP_USR:        ${FTP_USR}
+      FTP_PASSWORD:   ${FTP_PASSWORD}
     networks:
       - inception
     restart: always
