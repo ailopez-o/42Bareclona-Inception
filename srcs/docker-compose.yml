@@ -67,7 +67,6 @@ services:
     container_name: mariadb
     build:
       context: ./requirements/mariadb
-      dockerfile: Dockerfile
       args:
         MYSQL_DATABASE:   ${MYSQL_DATABASE}
         MYSQL_USER: ${MYSQL_USER}
@@ -80,3 +79,21 @@ services:
     restart: always
     env_file:
       - .env
+  
+  ftp:
+    container_name: ftp
+    build:
+      context: ./requirements/bonus/ftp
+    ports:
+      - "20:20"
+      - "21:21"
+      - "30000-30010:30000-30010"
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
