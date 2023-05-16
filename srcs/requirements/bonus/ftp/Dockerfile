@@ -9,5 +9,6 @@ COPY conf/vsftpd.conf /tmp/vsftpd.conf
 COPY tools/start_ftp.sh /tmp/start_ftp.sh
 RUN chmod +x /tmp/start_ftp.sh
 
-ENTRYPOINT ["vsftpd", "/etc/vsftpd/vsftpd.conf"]
+#ENTRYPOINT ["vsftpd", "/etc/vsftpd/vsftpd.conf"]
+CMD ["tail", "-f", "/dev/null"]
 #ENTRYPOINT ["/tmp/start_ftp.sh"]
