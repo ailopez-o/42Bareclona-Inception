@@ -55,8 +55,6 @@ services:
       WP_EMAIL:         ${WP_EMAIL}
     volumes:
       - wordpress:/var/www/html
-    env_file:
-      - .env
     networks:
       - inception
     restart: always
@@ -77,8 +75,6 @@ services:
     networks:
       - inception
     restart: always
-    env_file:
-      - .env
   
   ftp:
     container_name: ftp
