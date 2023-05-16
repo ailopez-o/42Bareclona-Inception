@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -f "/etc/vsftpd/vsftpd.conf.bak" ]; then
 
 	echo "FTP setting up"
