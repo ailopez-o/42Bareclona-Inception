@@ -7,4 +7,5 @@ RUN apt-get install -y vim netcat
 COPY conf/vsftpd.conf /tmp/vsftpd.conf
 
 COPY tools/start_ftp.sh /tmp/start_ftp.sh
+RUN chmod +x /tmp/start_ftp.sh
 ENTRYPOINT ["/tmp/start_ftp.sh"]
