@@ -20,4 +20,4 @@ else
 fi
 echo "FTP started on :21"
 vsftpd /etc/vsftpd.conf
-tail -f /dev/null
+#tail -f /dev/null
