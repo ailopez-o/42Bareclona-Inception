@@ -91,7 +91,7 @@ services:
     volumes:
       - wordpress:/var/www/html
     environment:
-      FTP_USR:        ${FTP_USR}
+      FTP_USER:        ${FTP_USER}
       FTP_PASSWORD:   ${FTP_PASSWORD}
     networks:
       - inception
