@@ -18,5 +18,5 @@ else
 	echo "FTP already configured"
 fi
 echo "FTP started on :21"
-vsftpd /etc/vsftpd.conf
+#vsftpd /etc/vsftpd.conf
 tail -f /dev/null
