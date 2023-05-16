@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f "/var/www/html/wp-config.php" ]; then
+if [ ! -f "/var/www/html/config.php" ]; then
 	echo "Seting up wordpress"
 	cd /var/www/html
 	wp core download --allow-root
@@ -11,4 +11,4 @@ else
 	echo "Wordpress allready configured"
 fi
 echo "Wordpress Up & Runnnig"
-\/usr/sbin/php-fpm7.3 -F
+/usr/sbin/php-fpm7.3 -F
