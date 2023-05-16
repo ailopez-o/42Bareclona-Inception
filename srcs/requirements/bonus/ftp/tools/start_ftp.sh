@@ -1,5 +1,6 @@
 if [ ! -f "/etc/vsftpd/vsftpd.conf.bak" ]; then
 
+	echo "FTP setting up"
     mkdir -p /var/www/html
 
     cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
@@ -12,8 +13,8 @@ if [ ! -f "/etc/vsftpd/vsftpd.conf.bak" ]; then
 
 	#chmod +x /etc/vsftpd/vsftpd.conf
     echo $FTP_USR | tee -a /etc/vsftpd.userlist
-
+else
+	echo "FTP already configured"
 fi
-
 echo "FTP started on :21"
 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
