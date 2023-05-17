@@ -100,7 +100,7 @@ services:
     build:
       context: ./requirements/bonus/adminer
     ports:
-      - "8080:8080"
+      - "8080:80"
     environment:
       MYSQL_DATABASE:   ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
