@@ -5,12 +5,17 @@ FROM debian:buster
 RUN apt-get update && apt-get upgrade -y
 
 # Instalamos los paquetes necesarios para PHP y Apache
-RUN apt-get install -y apache2 php7.3 php7.3-fpm libapache2-mod-php7.3
+RUN apt-get install -y wget vim apache2 php7.3 php7.3-fpm libapache2-mod-php7.3
 
 # Habilitamos los módulos necesarios de Apache
 RUN a2enmod proxy_fcgi setenvif
 RUN a2enconf php7.3-fpm
 
+WORKDIR /var/www/html/
+# Download Adminer
+RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+# Rename the downloaded file to index.php so it's served as the default page
+RUN mv adminer-4.8.1.php index.php
 # Copiamos el directorio de nuestro proyecto al directorio predeterminado de Apache
 COPY ./phpinfo.php /var/www/html/phpinfo.php
 
