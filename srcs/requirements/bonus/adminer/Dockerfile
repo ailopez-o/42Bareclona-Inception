@@ -2,13 +2,13 @@ FROM debian:buster
 
 # Update and install dependencies
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli php-cgi
+RUN apt-get install -y wget php php7.3-fpm php-cgi
 
 # Install a basic web server
 RUN apt-get install -y lighttpd
 
-RUN lighttpd-enable-mod fastcgi
-RUN lighttpd-enable-mod fastcgi-php
+# RUN lighttpd-enable-mod fastcgi
+# RUN lighttpd-enable-mod fastcgi-php
 
 # Change working directory
 WORKDIR /var/www/html
