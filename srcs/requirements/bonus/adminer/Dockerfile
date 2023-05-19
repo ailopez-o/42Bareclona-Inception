@@ -3,11 +3,16 @@ FROM debian:buster
 # Update and install dependencies
 RUN apt-get update && apt-get install -y \
     php8.0 \
+    php8-fpm \
+    php-cgi \
     php-mysql \
     wget
 
 # Install a basic web server
 RUN apt-get install -y lighttpd
+
+RUN lighttpd-enable-mod fastcgi
+RUN lighttpd-enable-mod fastcgi-php
 
 # Change working directory
 WORKDIR /var/www/html
