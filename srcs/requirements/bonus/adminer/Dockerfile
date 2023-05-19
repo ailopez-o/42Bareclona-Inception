@@ -16,6 +16,7 @@ WORKDIR /var/www/html/
 RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 # Rename the downloaded file to index.php so it's served as the default page
 RUN mv adminer-4.8.1.php index.php
+RUN rm index.html
 # Copiamos el directorio de nuestro proyecto al directorio predeterminado de Apache
 COPY ./phpinfo.php /var/www/html/phpinfo.php
 
