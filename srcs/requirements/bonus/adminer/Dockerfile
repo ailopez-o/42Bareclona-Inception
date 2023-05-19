@@ -1,42 +1,18 @@
-FROM alpine:3.15.0
+# Usamos como base Debian Booster
+FROM debian:booster
 
-# install prerequisites
-# https://wordpress.com/support/php-environment/
-RUN apk update && \
-  	apk add --no-cache \
-	curl \
-	less \
-	mariadb-client \
-	php8 \
-	php8-fpm \
-	php8-common \
-	php8-session \
-	php8-iconv \
-	php8-json \
-	php8-gd \
-	php8-curl \
-	php8-xml \
-	php8-mysqli \
-	php8-imap \
-	php8-pdo \
-	php8-pdo_mysql \
-	php8-soap \
-	php8-posix \
-	php8-gettext \
-	php8-ldap \
-	php8-ctype \
-	php8-dom \
-	php8-simplexml
+# Actualizamos el sistema e instalamos los paquetes necesarios
+RUN apt-get update && apt-get upgrade -y
 
-#RUN the adminer part, create html directory, move the adminer directory and add user
+# Instalamos los paquetes necesarios para PHP y Apache
+RUN apt-get install -y apache2 php7.3 php7.3-fpm libapache2-mod-php7.3
 
-RUN \
-	curl -L -O https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php && \
-	mkdir -p /var/www/html && \
-	mv ./adminer-4.8.1.php /var/www/html/index.php && \
-	adduser -u 82 -D -S -G www-data www-data
+# Habilitamos los módulos necesarios de Apache
+RUN a2enmod proxy_fcgi setenvif
+RUN a2enconf php7.3-fpm
 
-COPY /conf/www.conf /etc/php8/php-fpm.d/www.conf
+# Copiamos el directorio de nuestro proyecto al directorio predeterminado de Apache
+COPY ./phpinfo.php /var/www/html/phpinfo.php
 
-
-CMD ["php-fpm8", "--nodaemonize"]
+# Iniciamos el servicio de Apache al arrancar el contenedor
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
