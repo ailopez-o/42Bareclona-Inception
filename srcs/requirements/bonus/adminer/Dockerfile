@@ -38,7 +38,5 @@ RUN \
 
 COPY /conf/www.conf /etc/php8/php-fpm.d/www.conf
 
-EXPOSE 9000
-STOPSIGNAL SIGQUIT
 
 CMD ["php-fpm8", "--nodaemonize"]
