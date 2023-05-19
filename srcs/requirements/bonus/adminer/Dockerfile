@@ -1,5 +1,5 @@
 # Usamos como base Debian Booster
-FROM debian:booster
+FROM debian:buster
 
 # Actualizamos el sistema e instalamos los paquetes necesarios
 RUN apt-get update && apt-get upgrade -y
