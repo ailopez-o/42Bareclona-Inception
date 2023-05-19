@@ -58,7 +58,7 @@ clean:
 	-docker rmi srcs-mariadb
 	@echo "$(DARK_GREEN)ADMINER Docker & Image Clean$(DEF_COLOR)"
 	-docker rm adminer	
-	-docker rmi srcs-madminer
+	-docker rmi srcs-adminer
 	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
 	-docker rm ftp
 	-docker rmi srcs-ftp
