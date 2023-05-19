@@ -1,7 +1,7 @@
 FROM debian:buster
 
 # Update and install dependencies
-RUN apt-get update && apt-get 
+RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli php-cgi
 
 # Install a basic web server
