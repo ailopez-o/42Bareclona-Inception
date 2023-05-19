@@ -5,7 +5,7 @@ FROM debian:buster
 RUN apt-get update && apt-get upgrade -y
 
 # Instalamos los paquetes necesarios para PHP y Apache
-RUN apt-get install -y wget vim apache2 php7.3 php7.3-fpm libapache2-mod-php7.3
+RUN apt-get install -y wget vim apache2 php7.3 php7.3-fpm php7.3-mysqli ibapache2-mod-php7.3
 
 # Habilitamos los módulos necesarios de Apache
 RUN a2enmod proxy_fcgi setenvif
