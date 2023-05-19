@@ -1,24 +1,44 @@
-FROM debian:buster
+FROM alpine:3.15.0
 
-# Update and install dependencies
-RUN apt-get update && apt-get upgrade -y
-# Install a basic web server
-RUN apt-get install -y lighttpd
-RUN apt-get install -y wget php php7.3-fpm php5-cgi libapache2-mod-php7.3
+# install prerequisites
+# https://wordpress.com/support/php-environment/
+RUN apk update && \
+  	apk add --no-cache \
+	curl \
+	less \
+	mariadb-client \
+	php8 \
+	php8-fpm \
+	php8-common \
+	php8-session \
+	php8-iconv \
+	php8-json \
+	php8-gd \
+	php8-curl \
+	php8-xml \
+	php8-mysqli \
+	php8-imap \
+	php8-pdo \
+	php8-pdo_mysql \
+	php8-soap \
+	php8-posix \
+	php8-gettext \
+	php8-ldap \
+	php8-ctype \
+	php8-dom \
+	php8-simplexml
 
-# RUN lighttpd-enable-mod fastcgi
-# RUN lighttpd-enable-mod fastcgi-php
+#RUN the adminer part, create html directory, move the adminer directory and add user
 
-# Change working directory
-WORKDIR /var/www/html
+RUN \
+	curl -L -O https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php && \
+	mkdir -p /var/www/html && \
+	mv ./adminer-4.8.1.php /var/www/html/index.php && \
+	adduser -u 82 -D -S -G www-data www-data
 
-# Download Adminer
-RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+COPY /conf/www.conf /etc/php8/php-fpm.d/www.conf
 
-# Rename the downloaded file to index.php so it's served as the default page
-RUN mv adminer-4.8.1.php index.php
+EXPOSE 9000
+STOPSIGNAL SIGQUIT
 
-COPY ./phpinfo.php /var/www/html/phpinfo.php 
-
-# Start the web server
-CMD lighttpd -D -f /etc/lighttpd/lighttpd.conf
+CMD ["php-fpm8", "--nodaemonize"]
