@@ -1,12 +1,8 @@
 FROM debian:buster
 
 # Update and install dependencies
-RUN apt-get update && apt-get install -y \
-    php8.0 \
-    php8-fpm \
-    php-cgi \
-    php-mysql \
-    wget
+RUN apt-get update && apt-get 
+RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli php-cgi
 
 # Install a basic web server
 RUN apt-get install -y lighttpd
