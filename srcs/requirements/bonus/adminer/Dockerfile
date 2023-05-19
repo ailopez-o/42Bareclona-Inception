@@ -4,7 +4,7 @@ FROM debian:buster
 RUN apt-get update && apt-get upgrade -y
 # Install a basic web server
 RUN apt-get install -y lighttpd
-RUN apt-get install -y wget php php7.3-fpm php-cgi libapache2-mod-php7.3
+RUN apt-get install -y wget php php7.3-fpm php5-cgi libapache2-mod-php7.3
 
 # RUN lighttpd-enable-mod fastcgi
 # RUN lighttpd-enable-mod fastcgi-php
