@@ -153,8 +153,8 @@ services:
       BBDD_MOUNT_DIR:   ${BBDD_MOUNT_DIR}
       BBDD_HOST_PATH:   ${BBDD_HOST_PATH}
     volumes:
-      - mariadb:  /var/inception/backup
-      - backup:   /var/inception/bbdd
+      - mariadb:  ${BBDD_MOUNT_DIR}
+
     networks:
       - inception
     restart: always
