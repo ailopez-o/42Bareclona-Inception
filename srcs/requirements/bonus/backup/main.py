@@ -9,7 +9,7 @@ def update_database_job():
     if os.path.exists(new_dst_dir):
         shutil.rmtree(new_dst_dir)
     shutil.copytree(os.environ['BBDD_MOUNT_DIR'], new_dst_dir)
-    print(f"Backup executed in {new_dst_dir} from {os.environ['BBDD_PATH']} in {date.today()}")
+    print(f"Backup done in {new_dst_dir} from {os.environ['BBDD_PATH']} on {date.today()}")
 
 # First Backup ar start
 update_database_job()
