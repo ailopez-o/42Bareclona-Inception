@@ -20,5 +20,6 @@ RUN rm index.html
 # Copiamos el directorio de nuestro proyecto al directorio predeterminado de Apache
 COPY ./phpinfo.php /var/www/html/phpinfo.php
 
+EXPOSE 80
 # Iniciamos el servicio de Apache al arrancar el contenedor
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

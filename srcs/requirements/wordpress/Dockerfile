@@ -21,6 +21,6 @@ RUN chmod +x /usr/local/bin/wp_setup.sh
 WORKDIR /var/www/html/
 RUN mkdir -p /run/php
 RUN chmod 755 /run/php
-
+EXPOSE 9000
 #ENTRYPOINT
 ENTRYPOINT [ "/usr/local/bin/wp_setup.sh" ]
