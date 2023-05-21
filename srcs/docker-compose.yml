@@ -8,14 +8,21 @@ volumes:
     name: wp-data
     driver: local
     driver_opts:
-      device: ${WP_PATH}
+      device: ${WP_HOST_PATH}
       o: bind
       type: none
   mariadb:
     name: sql-data
     driver: local
     driver_opts:
-      device: ${BBDD_PATH}
+      device: ${BBDD_HOST_PATH}
+      o: bind
+      type: none
+  backup:
+    name: backup-data
+    driver: local
+    driver_opts:
+      device: ${BACKUP_HOST_PATH}
       o: bind
       type: none
 
@@ -90,9 +97,9 @@ services:
     build:
       context: ./requirements/mariadb
       args:
-        MYSQL_DATABASE:   ${MYSQL_DATABASE}
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
+        MYSQL_DATABASE:       ${MYSQL_DATABASE}
+        MYSQL_USER:           ${MYSQL_USER}
+        MYSQL_PASSWORD:       ${MYSQL_PASSWORD}
         MYSQL_ROOT_PASSWORD:  ${MYSQL_ROOT_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
@@ -126,9 +133,9 @@ services:
     build:
       context: ./requirements/bonus/adminer
     environment:
-      MYSQL_DATABASE:   ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD:  ${MYSQL_PASSWORD}
+      MYSQL_DATABASE:       ${MYSQL_DATABASE}
+      MYSQL_USER:           ${MYSQL_USER}
+      MYSQL_PASSWORD:       ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD:  ${MYSQL_ROOT_PASSWORD}
     networks:
       - inception
@@ -142,11 +149,12 @@ services:
     build:
       context: ./requirements/bonus/backup
     environment:
-      BACKUP_DIR:   ${BACKUP_DIR}
-      BBDD_MOUNT_DIR: ${BBDD_MOUNT_DIR}
-      BBDD_PATH: ${BBDD_PATH}
+      BACKUP_MOUNT_DIR: ${BACKUP_MOUNT_DIR}
+      BBDD_MOUNT_DIR:   ${BBDD_MOUNT_DIR}
+      BBDD_HOST_PATH:   ${BBDD_HOST_PATH}
     volumes:
-      - mariadb:/var/backup_origin
+      - mariadb:${BBDD_MOUNT_DIR}
+      - backup: ${BACKUP_MOUNT_DIR}
     networks:
       - inception
     restart: always
