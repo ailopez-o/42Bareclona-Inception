@@ -7,7 +7,6 @@ RUN	apt-get install -y vim netcat
 #RUN apt-get install -y certbot python3-certbot-nginx
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
-COPY myweb.html /var/www/html/myweb.html
 #COPY ./conf/certbot.conf /etc/nginx/sites-available/netard.net
 
 RUN mkdir -p /run/nginx
