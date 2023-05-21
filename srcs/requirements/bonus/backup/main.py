@@ -1,7 +1,6 @@
 from apscheduler.schedulers.background import BlockingScheduler
 import shutil
 import os
-import sys
 from datetime import date
 
 def update_database_job():
@@ -10,10 +9,11 @@ def update_database_job():
     if os.path.exists(new_dst_dir):
         shutil.rmtree(new_dst_dir)
     shutil.copytree(os.environ['BBDD_MOUNT_DIR'], new_dst_dir)
-    print(f"Backup executed in {new_dst_dir} from {os.environ['BBDD_MOUNT_DIR']} in {date.today()}")
+    print(f"Backup executed in {new_dst_dir} from {os.environ['BBDD_PATH']} in {date.today()}")
 
-
-# Crea un planificador
+# First Backup ar start
+update_database_job()
+# Planner to backup daily
 scheduler = BlockingScheduler()
-scheduler.add_job(update_database_job, 'interval', seconds=5)
+scheduler.add_job(update_database_job, 'interval', days=1)
 scheduler.start()
