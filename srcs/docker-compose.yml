@@ -154,7 +154,7 @@ services:
       BBDD_HOST_PATH:   ${BBDD_HOST_PATH}
     volumes:
       - mariadb:  ${BBDD_MOUNT_DIR}
-
+      - backup:   ${BACKUP_MOUNT_DIR}
     networks:
       - inception
     restart: always
