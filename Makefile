@@ -13,8 +13,9 @@ DARK_GRAY =		\033[38;5;234m
 DARK_GREEN =	\033[1m\033[38;2;75;179;82m
 
 
-WP_PATH := $(shell grep WP_PATH srcs/.env | cut -d '=' -f2)
-BBDD_PATH := $(shell grep BBDD_PATH srcs/.env | cut -d '=' -f2)
+WP_HOST_PATH := $(shell grep WP_HOST_PATH srcs/.env | cut -d '=' -f2)
+BBDD_HOST_PATH := $(shell grep BBDD_HOST_PATH srcs/.env | cut -d '=' -f2)
+BACKUP_HOST_PATH := $(shell grep BACKUP_HOST_PATH srcs/.env | cut -d '=' -f2)
 
 
 
@@ -71,12 +72,15 @@ clean:
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
-	rm -rf ${WP_PATH}
-	mkdir -p ${WP_PATH}
-	chmod 777 ${WP_PATH}
-	rm -rf ${BBDD_PATH}
-	mkdir -p ${BBDD_PATH}
-	chmod 777 ${BBDD_PATH}
+	rm -rf ${WP_HOST_PATH}
+	mkdir -p ${WP_HOST_PATH}
+	chmod 777 ${WP_HOST_PATH}
+	rm -rf ${BBDD_HOST_PATH}
+	mkdir -p ${BBDD_HOST_PATH}
+	chmod 777 ${BBDD_HOST_PATH}
+	rm -rf ${BACKUP_HOST_PATH}
+	mkdir -p ${BACKUP_HOST_PATH}
+	chmod 777 ${BACKUP_HOST_PATH}
 	@echo "$(DARK_GREEN)NETWORK Docker & Image Clean$(DEF_COLOR)"
 	-docker network rm inception
 
