@@ -134,6 +134,7 @@ services:
       context: ./requirements/bonus/backup
     environment:
       BACKUP_DIR:   ${BACKUP_DIR}
+      BBDD_MOUNT_DIR: ${BBDD_MOUNT_DIR}
       BBDD_PATH: ${BBDD_PATH}
     volumes:
       - mariadb:/var/backup_origin

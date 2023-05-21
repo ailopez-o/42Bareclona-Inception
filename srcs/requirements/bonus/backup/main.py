@@ -9,8 +9,8 @@ def update_database_job():
     new_dst_dir = os.path.join(os.environ['BACKUP_DIR'], today)
     if os.path.exists(new_dst_dir):
         shutil.rmtree(new_dst_dir)
-    shutil.copytree(os.environ['BBDD_PATH'], new_dst_dir)
-    print(f"Backup executed in {new_dst_dir} from {os.environ['BBDD_PATH']} in {date.today()}")
+    shutil.copytree(os.environ['BBDD_MOUNT_DIR'], new_dst_dir)
+    print(f"Backup executed in {new_dst_dir} from {os.environ['BBDD_MOUNT_DIR']} in {date.today()}")
 
 
 # Crea un planificador
