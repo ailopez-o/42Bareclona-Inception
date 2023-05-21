@@ -73,6 +73,16 @@ services:
     depends_on:
       - mariadb
 
+  ## ----| WORDPRESS |----- ##
+  staticweb:
+    container_name: staticweb
+    build:
+      context: ./requirements/bonus/staticweb
+    networks:
+      - inception
+    restart: always
+
+
   ## ----| MARIADB |----- ##
   mariadb:
     container_name: mariadb
