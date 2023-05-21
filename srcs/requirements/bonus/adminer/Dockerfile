@@ -1,25 +1,26 @@
-# Usamos como base Debian Booster
 FROM debian:buster
 
-# Actualizamos el sistema e instalamos los paquetes necesarios
 RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli mariadb-client
+RUN apt-get install -y vim netcat wget
 
-# Instalamos los paquetes necesarios para PHP y Apache
-RUN apt-get install -y wget vim apache2 php7.3 php7.3-fpm php7.3-mysqli ibapache2-mod-php7.3
+# JUST TESTING
+# COPY ./index.html /var/www/html/
+COPY ./phpinfo.php /var/www/html/
 
-# Habilitamos los módulos necesarios de Apache
-RUN a2enmod proxy_fcgi setenvif
-RUN a2enconf php7.3-fpm
+#PHP SETUP
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 WORKDIR /var/www/html/
+
 # Download Adminer
 RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 # Rename the downloaded file to index.php so it's served as the default page
 RUN mv adminer-4.8.1.php index.php
-RUN rm index.html
-# Copiamos el directorio de nuestro proyecto al directorio predeterminado de Apache
-COPY ./phpinfo.php /var/www/html/phpinfo.php
 
-EXPOSE 80
-# Iniciamos el servicio de Apache al arrancar el contenedor
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+RUN mkdir -p /run/php
+RUN chmod 755 /run/php
+EXPOSE 9000
+#ENTRYPOINT
+ENTRYPOINT [ "/usr/sbin/php-fpm7.3", "-F" ]
+
