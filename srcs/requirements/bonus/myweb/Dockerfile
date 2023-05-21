@@ -17,6 +17,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 #WP SETUP SCRIPT
 COPY ./tools/wp_setup.sh /usr/local/bin/wp_setup.sh
 RUN chmod +x /usr/local/bin/wp_setup.sh
+COPY myweb.html /var/www/html/myweb.html
 
 WORKDIR /var/www/html/
 RUN mkdir -p /run/php
