@@ -40,6 +40,11 @@ cnginx:
 	-docker rm nginx
 	-docker rmi srcs-nginx
 
+cadminer:
+	-docker stop adminer
+	-docker rm adminer
+	-docker rmi srcs-adminer
+
 clean:
 	-docker-compose -f srcs/docker-compose.yml down
 	@echo "$(DARK_GREEN)NGNIX Docker & Image Clean$(DEF_COLOR)"
@@ -51,6 +56,9 @@ clean:
 	@echo "$(DARK_GREEN)MARIADB Docker & Image Clean$(DEF_COLOR)"
 	-docker rm mariadb	
 	-docker rmi srcs-mariadb
+	@echo "$(DARK_GREEN)ADMINER Docker & Image Clean$(DEF_COLOR)"
+	-docker rm adminer	
+	-docker rmi srcs-adminer
 	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
 	-docker rm ftp
 	-docker rmi srcs-ftp
