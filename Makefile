@@ -65,6 +65,9 @@ clean:
 	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
 	-docker rm backup
 	-docker rmi srcs-backup
+	@echo "$(DARK_GREEN)STATIC WEB Docker & Image Clean$(DEF_COLOR)"
+	-docker rm staticweb
+	-docker rmi srcs-staticweb
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
