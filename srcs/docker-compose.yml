@@ -79,8 +79,6 @@ services:
     container_name: staticweb
     build:
       context: ./requirements/bonus/staticweb
-    ports:
-      - "8080:80"
     networks:
       - inception
     restart: always

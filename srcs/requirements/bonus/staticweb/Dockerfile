@@ -11,5 +11,5 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/my_nginx.conf
 COPY ./files /var/www/html/
 
 RUN mkdir -p /run/nginx
-#EXPOSE 80
+EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
