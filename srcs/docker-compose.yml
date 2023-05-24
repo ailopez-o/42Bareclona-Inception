@@ -41,7 +41,7 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
-    image: nginx
+    image: nginx:inception
     ports:
      - "443:443"
      - "80:80"
@@ -58,8 +58,8 @@ services:
   ## ----| WORDPRESS |----- ##
   wordpress:
     container_name: wordpress
-    build:
-      context: ./requirements/wordpress
+    build: ./requirements/wordpress
+    image: wordpress:inception
     environment:
       MYSQL_HOST:         mariadb
       MYSQL_DATABASE:     ${MYSQL_DATABASE}
@@ -85,8 +85,8 @@ services:
 
   staticweb:
     container_name: staticweb
-    build:
-      context: ./requirements/bonus/staticweb
+    build: ./requirements/bonus/staticweb
+    image: staticweb:inception
     networks:
       - inception
     restart: always
@@ -102,37 +102,37 @@ services:
         MYSQL_USER:           ${MYSQL_USER}
         MYSQL_PASSWORD:       ${MYSQL_PASSWORD}
         MYSQL_ROOT_PASSWORD:  ${MYSQL_ROOT_PASSWORD}
+    image: mariadb:inception
     volumes:
       - mariadb:/var/lib/mysql
     networks:
       - inception
     restart: always
   
-  # ## ----| FTP |----- ##
-  # ftp:
-  #   container_name: ftp
-  #   build:
-  #     context: ./requirements/bonus/ftp
-  #   ports:
-  #     - "20:20"
-  #     - "21:21"
-  #     - "1200-1210:1200-1210"
-  #   volumes:
-  #     - wordpress:/var/www/html
-  #   environment:
-  #     FTP_USER:       ${FTP_USER}
-  #     FTP_PASSWORD:   ${FTP_PASSWORD}
-  #   networks:
-  #     - inception
-  #   restart: always
-  #   depends_on:
-  #     - wordpress
+  ## ----| FTP |----- ##
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    image: ftp:inception
+    ports:
+      - "21:21"
+      - "1200-1210:1200-1210"
+    volumes:
+      - wordpress:/var/www/html
+    environment:
+      FTP_USER:       ${FTP_USER}
+      FTP_PASSWORD:   ${FTP_PASSWORD}
+    networks:
+      - inception
+    restart: always
+    depends_on:
+      - wordpress
 
   ## ----| ADMINER |----- ##
   adminer:
     container_name: adminer
-    build:
-      context: ./requirements/bonus/adminer
+    build: ./requirements/bonus/adminer
+    image: adminer:inception
     environment:
       MYSQL_DATABASE:       ${MYSQL_DATABASE}
       MYSQL_USER:           ${MYSQL_USER}
@@ -147,8 +147,8 @@ services:
   ## ----| BACKUP |----- ##
   backup:
     container_name: backup
-    build:
-      context: ./requirements/bonus/backup
+    build: ./requirements/bonus/backup
+    image: backup:inception
     environment:
       BACKUP_MOUNT_DIR: ${BACKUP_MOUNT_DIR}
       BBDD_MOUNT_DIR:   ${BBDD_MOUNT_DIR}

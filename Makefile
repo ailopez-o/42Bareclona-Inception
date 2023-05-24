@@ -27,48 +27,48 @@ stop:
 cwp:
 	-docker stop wordpress
 	-docker rm wordpress
-	-docker rmi srcs-wordpress
+	-docker rmi wordpress
 	-docker volume rm wp-data
 
 cmdb:
 	-docker stop mariadb
 	-docker rm mariadb
-	-docker rmi srcs-mariadb
+	-docker rmi mariadb
 	-docker volume rm sql-data
 
 cnginx:
 	-docker stop ngnix
 	-docker rm nginx
-	-docker rmi srcs-nginx
+	-docker rmi nginx
 
 cadminer:
 	-docker stop adminer
 	-docker rm adminer
-	-docker rmi srcs-adminer
+	-docker rmi adminer
 
 clean:
 	-docker-compose -f srcs/docker-compose.yml down
 	@echo "$(DARK_GREEN)NGNIX Docker & Image Clean$(DEF_COLOR)"
 	-docker rm nginx
-	-docker rmi srcs-nginx
+	-docker rmi nginx
 	@echo "$(DARK_GREEN)WORDPRESS Docker & Image Clean$(DEF_COLOR)"
 	-docker rm wordpress
-	-docker rmi srcs-wordpress
+	-docker rmi wordpress
 	@echo "$(DARK_GREEN)MARIADB Docker & Image Clean$(DEF_COLOR)"
 	-docker rm mariadb	
-	-docker rmi srcs-mariadb
+	-docker rmi mariadb
 	@echo "$(DARK_GREEN)ADMINER Docker & Image Clean$(DEF_COLOR)"
 	-docker rm adminer	
-	-docker rmi srcs-adminer
+	-docker rmi adminer
 	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
 	-docker rm ftp
-	-docker rmi srcs-ftp
+	-docker rmi ftp
 	@echo "$(DARK_GREEN)FTP Docker & Image Clean$(DEF_COLOR)"
 	-docker rm backup
-	-docker rmi srcs-backup
+	-docker rmi backup
 	@echo "$(DARK_GREEN)STATIC WEB Docker & Image Clean$(DEF_COLOR)"
 	-docker rm staticweb
-	-docker rmi srcs-staticweb
+	-docker rmi staticweb
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
