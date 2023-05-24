@@ -107,25 +107,25 @@ services:
       - inception
     restart: always
   
-  ## ----| FTP |----- ##
-  ftp:
-    container_name: ftp
-    build:
-      context: ./requirements/bonus/ftp
-    ports:
-      - "20:20"
-      - "21:21"
-      - "1200-1210:1200-1210"
-    volumes:
-      - wordpress:/var/www/html
-    environment:
-      FTP_USER:       ${FTP_USER}
-      FTP_PASSWORD:   ${FTP_PASSWORD}
-    networks:
-      - inception
-    restart: always
-    depends_on:
-      - wordpress
+  # ## ----| FTP |----- ##
+  # ftp:
+  #   container_name: ftp
+  #   build:
+  #     context: ./requirements/bonus/ftp
+  #   ports:
+  #     - "20:20"
+  #     - "21:21"
+  #     - "1200-1210:1200-1210"
+  #   volumes:
+  #     - wordpress:/var/www/html
+  #   environment:
+  #     FTP_USER:       ${FTP_USER}
+  #     FTP_PASSWORD:   ${FTP_PASSWORD}
+  #   networks:
+  #     - inception
+  #   restart: always
+  #   depends_on:
+  #     - wordpress
 
   ## ----| ADMINER |----- ##
   adminer:

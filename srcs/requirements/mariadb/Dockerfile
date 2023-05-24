@@ -14,13 +14,15 @@ ARG MYSQL_DATABASE
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
 ARG MYSQL_ROOT_PASSWORD
-COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
-RUN chmod +x /usr/local/bin/create_user.sh
-RUN /usr/local/bin/create_user.sh
+# COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
+# RUN chmod +x /usr/local/bin/create_user.sh
+# RUN /usr/local/bin/create_user.sh
 
 #PORT
 EXPOSE 3306
 
+CMD ["tail" ,"-f", "/dev/null"]
+
 #START
-CMD ["mysqld"]
+#CMD ["mysqld"]
 
