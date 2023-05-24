@@ -59,6 +59,7 @@ services:
     container_name: wordpress
     build:
       context: ./requirements/wordpress
+    image: wordpress
     environment:
       MYSQL_HOST:         mariadb
       MYSQL_DATABASE:     ${MYSQL_DATABASE}
