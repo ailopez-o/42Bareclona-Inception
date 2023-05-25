@@ -59,7 +59,7 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    image: wordpress:inception
+    image: wordpress
     environment:
       MYSQL_HOST:         mariadb
       MYSQL_DATABASE:     ${MYSQL_DATABASE}
@@ -86,7 +86,7 @@ services:
   staticweb:
     container_name: staticweb
     build: ./requirements/bonus/staticweb
-    image: staticweb:inception
+    image: staticweb
     networks:
       - inception
     restart: always
@@ -113,7 +113,7 @@ services:
   ftp:
     container_name: ftp
     build: ./requirements/bonus/ftp
-    image: ftp:inception
+    image: ftp
     ports:
       - "21:21"
       - "1200-1210:1200-1210"
@@ -132,7 +132,7 @@ services:
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
-    image: adminer:inception
+    image: adminer
     environment:
       MYSQL_DATABASE:       ${MYSQL_DATABASE}
       MYSQL_USER:           ${MYSQL_USER}
@@ -148,7 +148,7 @@ services:
   backup:
     container_name: backup
     build: ./requirements/bonus/backup
-    image: backup:inception
+    image: backup
     environment:
       BACKUP_MOUNT_DIR: ${BACKUP_MOUNT_DIR}
       BBDD_MOUNT_DIR:   ${BBDD_MOUNT_DIR}
