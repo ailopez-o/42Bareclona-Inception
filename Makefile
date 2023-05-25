@@ -72,6 +72,7 @@ clean:
 	@echo "$(DARK_GREEN)VOLUMES Clean$(DEF_COLOR)"
 	-docker volume rm wp-data
 	-docker volume rm sql-data
+	-docker volume rm backup-data
 	rm -rf ${WP_HOST_PATH}
 	mkdir -p ${WP_HOST_PATH}
 	chmod 777 ${WP_HOST_PATH}
