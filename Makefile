@@ -20,7 +20,7 @@ BACKUP_HOST_PATH := $(shell grep BACKUP_HOST_PATH srcs/.env | cut -d '=' -f2)
 
 
 all:
-	docker-compose -f srcs/docker-compose.yml up -d
+	docker-compose -f srcs/docker-compose.yml up -d --build
 stop:
 	docker-compose -f srcs/docker-compose.yml down
 
