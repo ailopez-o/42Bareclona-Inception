@@ -1,7 +1,7 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y wget php php7.3-fpm php7.3-mysqli mariadb-client
+RUN apt-get install -y wget php php7.4-fpm php7.4-mysqli mariadb-client
 RUN apt-get install -y vim netcat
 
 # JUST TESTING
