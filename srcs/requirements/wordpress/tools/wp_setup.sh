@@ -13,4 +13,4 @@ else
 	echo "Wordpress allready configured"
 fi
 echo "Wordpress Up & Runnnig"
-/usr/sbin/php-fpm7.3 -F
+/usr/sbin/php-fpm7.4 -F
