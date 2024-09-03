@@ -9,7 +9,7 @@ RUN apt-get install -y vim netcat wget
 COPY ./phpinfo.php /var/www/html/
 
 #PHP SETUP
-COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 WORKDIR /var/www/html/
 
@@ -22,5 +22,5 @@ RUN mkdir -p /run/php
 RUN chmod 755 /run/php
 EXPOSE 9000
 #ENTRYPOINT
-ENTRYPOINT [ "/usr/sbin/php-fpm7.3", "-F" ]
+ENTRYPOINT [ "/usr/sbin/php-fpm7.4", "-F" ]
 
