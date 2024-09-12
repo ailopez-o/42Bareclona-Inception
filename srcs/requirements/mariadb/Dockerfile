@@ -1,28 +1,19 @@
-FROM debian:buster
+# Usar la imagen base de Debian Bullseye
+FROM debian:bullseye
 
-#INSTALL SERVICES
-RUN apt-get update
-RUN apt-get install -y mariadb-server
-RUN apt-get install -y vim procps netcat
+# Instalar MariaDB Server
+RUN apt-get update && apt-get install -y mariadb-server && apt-get clean
 
-#SERVER CONF
-RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
+# Copiar el archivo de configuración personalizado de MariaDB
 COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-#CREATE DATABASE & USER
-ARG MYSQL_DATABASE
-ARG MYSQL_USER
-ARG MYSQL_PASSWORD
-ARG MYSQL_ROOT_PASSWORD
-COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
-RUN chmod +x /usr/local/bin/create_user.sh
-RUN /usr/local/bin/create_user.sh
 
-#PORT
+# Copiar el script de entrada
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Exponer el puerto 3306
 EXPOSE 3306
 
-#CMD ["tail" ,"-f", "/dev/null"]
-
-#START
-CMD ["mysqld"]
-
+# Utilizar el script de entrada como punto de inicio
+CMD ["/entrypoint.sh"]

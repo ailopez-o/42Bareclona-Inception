@@ -97,7 +97,7 @@ services:
     container_name: mariadb
     build:
       context: ./requirements/mariadb
-      args:
+    environment:
         MYSQL_DATABASE:       ${MYSQL_DATABASE}
         MYSQL_USER:           ${MYSQL_USER}
         MYSQL_PASSWORD:       ${MYSQL_PASSWORD}
@@ -108,7 +108,7 @@ services:
     networks:
       - inception
     restart: always
-  
+
   ## ----| FTP |----- ##
   ftp:
     container_name: ftp

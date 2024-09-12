@@ -20,6 +20,13 @@ BACKUP_HOST_PATH := $(shell grep BACKUP_HOST_PATH srcs/.env | cut -d '=' -f2)
 
 
 all:
+	mkdir -p /home/ailopez-/42Barcelona/inception/backup
+	mkdir -p /home/ailopez-/42Barcelona/inception/wp
+	mkdir -p /home/ailopez-/42Barcelona/inception/bbdd
+	chmod 777 /home/ailopez-/42Barcelona/inception/backup
+	chmod 777 /home/ailopez-/42Barcelona/inception/wp
+	chmod 777 /home/ailopez-/42Barcelona/inception/bbdd
+
 	docker-compose -f srcs/docker-compose.yml up -d --build
 stop:
 	docker-compose -f srcs/docker-compose.yml down
